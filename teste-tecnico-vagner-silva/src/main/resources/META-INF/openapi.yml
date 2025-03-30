@@ -1,0 +1,8 @@
+openapi: 3.0.3
+info:
+  title: Teste Técnico - Vagner Silva
+  version: 1.0.0
+  description: API para controle do ciclo de vida de cartões e contas
+servers:
+  - url: http://localhost:8080
+    description: Ambiente local

@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "eddf3057-2e51-41bc-a777-76d7e7777404",
+		"name": "Endpoints Teste Técnico - Vagner Silva",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Conta",
+			"item": [
+				{
+					"name": "Get Detalhes Conta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/conta/buscar?cpf=98765432100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"conta",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "98765432100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar nova Conta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Ana Carolina Oliveira\",\r\n  \"cpf\": \"98765432100\",\r\n  \"telefone\": \"21998765432\",\r\n  \"email\": \"anaoliveira@provedor.com.br\",\r\n  \"endereco\": {\r\n    \"logradouro\": \"Avenida Brasil\",\r\n    \"numero\": \"1500\",\r\n    \"complemento\": \"Bloco C\",\r\n    \"bairro\": \"Centro\",\r\n    \"cidade\": \"Rio de Janeiro\",\r\n    \"estado\": \"RJ\",\r\n    \"cep\": \"20040001\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/conta/cadastrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"conta",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inativar Conta",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nome@email\",\r\n    \"senha\": \"123s4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/conta/inativar?cpf=12345678901",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"conta",
+								"inativar"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "12345678901"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cartao",
+			"item": [
+				{
+					"name": "Criar Novo Cartao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipo\": \"VIRTUAL\", \r\n  \"contaId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cartao/cadastrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartao",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reemitir Cartao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numero\": 4539128473625518, \r\n  \"motivo\": \"ROUBO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cartao/reemitir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartao",
+								"reemitir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Cartoes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cartao/listar?contaId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartao",
+								"listar"
+							],
+							"query": [
+								{
+									"key": "contaId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ativar Cartao",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipo\": \"FISICO\", \r\n  \"contaId\": 4111111111111111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cartao/ativar?numero=4539128473625518",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartao",
+								"ativar"
+							],
+							"query": [
+								{
+									"key": "numero",
+									"value": "4539128473625518"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bloquear Cartao",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipo\": \"FISICO\", \r\n  \"contaId\": 4111111111111111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cartao/bloquear?numero=4539128473625518",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartao",
+								"bloquear"
+							],
+							"query": [
+								{
+									"key": "numero",
+									"value": "4539128473625518"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhook",
+			"item": [
+				{
+					"name": "Confirmar Entrega Cartao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroCartao\": \"4229382424144010\",\r\n  \"trackingId\": \"TRK123456789\",\r\n  \"deliveryStatus\": \"ENTREGUE\",\r\n  \"deliveryDate\": \"2023-11-15T14:30:45\",\r\n  \"deliveryReturnReason\": null,\r\n  \"deliveryAddress\": {\r\n    \"logradouro\": \"Avenida Paulista\",\r\n    \"numero\": \"1000\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": \"01310930\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/webhooks/transportadora",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"webhooks",
+								"transportadora"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar CVV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountId\": 1,\r\n  \"cardId\": 1,\r\n  \"nextCvv\": 789,\r\n  \"expirationDate\": \"2025-12-31T23:59:59\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/webhooks/cvv-rotativo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"webhooks",
+								"cvv-rotativo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
